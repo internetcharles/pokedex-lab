@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Header from './Header';
 import request from 'superagent';
 import PokeList from './PokeList';
+import SearchBar from './SearchBar';
 
 export default class App extends Component {
 
@@ -57,15 +58,7 @@ export default class App extends Component {
     return (
       <div>
         <Header />
-        <input onChange={this.handleChange}></input>
-        <input onChange={this.handleAttackChange} placeholder="Min. Attack"></input>
-        <select onChange={this.handleType}>
-          <option value='' defaultValue></option>
-          { this.state.types.map( type => {
-          return <option key={type} value={type}>{type}</option>
-  })}
-        </select>
-        <button onClick={this.handleClick} >Submit</button>
+        <SearchBar types={this.state.types} handleChange={this.handleChange} handleAttackChange={this.handleAttackChange} handleType={this.handleType} handleClick={this.handleClick} />
         <PokeList data={this.state.data}/>
       </div>
     )
