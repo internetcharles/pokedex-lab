@@ -1,4 +1,12 @@
 .pokemon-list {
     display: flex;
     flex-direction: row;
+    list-style: none;
+    flex-wrap: wrap;
+    font-family: 'Roboto Condensed', sans-serif;
+    color: white;
+    font-size: large;
+}
+img {
+    border: dotted white;
 }

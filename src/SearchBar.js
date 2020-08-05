@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
+import './SearchBar.css'
 
 export default class SearchBar extends Component {
     render() {
         return (
-            <div>
+            <div className="searchbar">
                 <input onChange={this.props.handleChange}></input>
                 <input onChange={this.props.handleAttackChange} placeholder="Min. Attack"></input>
                 <select onChange={this.props.handleType}>

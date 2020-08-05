@@ -4,8 +4,8 @@ import './PokeList.css'
 export default class PokeList extends Component {
     render() {
         return (
-            <div className="pokemon-list">
-                <ul>
+            <div>
+                <ul className="pokemon-list">
                     {this.props.data.map(pokemon => {
                     return  <li className="pokemon-name" key={pokemon.id}>{pokemon.pokemon.toUpperCase()}
                                 <p>Type: {pokemon.type_1}</p>

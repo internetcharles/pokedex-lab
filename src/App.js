@@ -3,6 +3,7 @@ import Header from './Header';
 import request from 'superagent';
 import PokeList from './PokeList';
 import SearchBar from './SearchBar';
+import './App.css'
 
 export default class App extends Component {
 
