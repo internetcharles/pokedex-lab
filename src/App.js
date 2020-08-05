@@ -3,19 +3,13 @@ import Header from './Header';
 import request from 'superagent';
 import PokeList from './PokeList';
 
-const requests = { 
-  baseUrl: 'https://alchemy-pokedex.herokuapp.com/api/pokedex',
-  pokemon: '?pokemon=',
-  abilities: 'abilities',
-  shapes: 'shapes'}
-
 export default class App extends Component {
 
   state = ({
     data: [],
-    searchQuery: null,
+    nameSearchQuery: null,
     currentType: null,
-    types: ['fire', 'grass', 'flying', 'rock']
+    types: ['', 'normal', 'fire', 'water', 'electric', 'grass', 'ice', 'fighting', 'poison', 'ground', 'flying', 'psychic', 'bug', 'rock', 'ghost', 'dragon', 'dark', 'steel', 'fairy']
   })
 
   componentDidMount = async () => {
@@ -24,33 +18,55 @@ export default class App extends Component {
   }
 
   handleChange = (event) => {
-    this.setState({ searchQuery: event.target.value })
-  }
-
-  handleClick = async () => {
-    const fetchedData = await request.get (`https://alchemy-pokedex.herokuapp.com/api/pokedex/?pokemon=${this.state.searchQuery}`)
-    this.setState({ data: fetchedData.body.results })
+    this.setState({ nameSearchQuery: event.target.value })
   }
 
   handleType = async (event) => {
     this.setState({ currentType: event.target.value })
-    const fetchedData = await request.get (`https://alchemy-pokedex.herokuapp.com/api/pokedex/?type=${this.state.currentType}`)
-    this.setState({ data: fetchedData.body.results })
   }
+
+  handleAttackChange = (event) => {
+    this.setState({ attackValue: event.target.value })
+  }
+
+  handleClick = async () => {
+    let link = 'https://alchemy-pokedex.herokuapp.com/api/pokedex/?pokemon='
+
+    if (this.state.nameSearchQuery) {
+      link = link + this.state.nameSearchQuery;
+    }
+
+    if (this.state.currentType) {
+      link = link + '&type=' + this.state.currentType;
+    }
+
+    if (this.state.attackValue) {
+      link = link + '&attack=' + this.state.attackValue;
+    }
+
+
+    console.log(link);
+
+    const fetchedData = await request.get(`${link}`);
+    this.setState({ data: fetchedData.body.results });
+  }
+
+
 
   render() {
     return (
       <div>
         <Header />
         <input onChange={this.handleChange}></input>
+        <input onChange={this.handleAttackChange} placeholder="Min. Attack"></input>
         <select onChange={this.handleType}>
           <option value='' defaultValue></option>
           { this.state.types.map( type => {
-          return <option value={type}>{type}</option>
+          return <option key={type} value={type}>{type}</option>
   })}
         </select>
-        <PokeList data={this.state.data}/>
         <button onClick={this.handleClick} >Submit</button>
+        <PokeList data={this.state.data}/>
       </div>
     )
   }
