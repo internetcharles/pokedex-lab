@@ -13,7 +13,7 @@ export default class SearchBar extends Component {
                 return <option key={type} value={type}>{type}</option>
         })}
                 </select>
-                <button onClick={this.props.handleClick} >Submit</button>
+                <button onClick={this.props.handleClick}>Submit</button>
             </div>
         )
     }

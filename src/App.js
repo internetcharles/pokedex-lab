@@ -11,6 +11,7 @@ export default class App extends Component {
     data: [],
     nameSearchQuery: null,
     currentType: null,
+    // sortStatus: true,
     types: [ 'normal', 'fire', 'water', 'electric', 'grass', 'ice', 'fighting', 'poison', 'ground', 'flying', 'psychic', 'bug', 'rock', 'ghost', 'dragon', 'dark', 'steel', 'fairy']
   })
 
@@ -31,6 +32,15 @@ export default class App extends Component {
     this.setState({ attackValue: event.target.value })
   }
 
+  // handleSortClick = () => {
+  //   if (this.state.sortStatus === true) {
+  //     this.setState({sortStatus: false})
+  //   }
+  //   else {
+  //     this.setState({sortStatus: true})
+  //   }
+  // }
+
   handleClick = async () => {
     let link = 'https://alchemy-pokedex.herokuapp.com/api/pokedex/?pokemon='
 
@@ -46,8 +56,7 @@ export default class App extends Component {
       link = link + '&attack=' + this.state.attackValue;
     }
 
-
-    console.log(link);
+    link = link + '&direction=desc';
 
     const fetchedData = await request.get(`${link}`);
     this.setState({ data: fetchedData.body.results });
