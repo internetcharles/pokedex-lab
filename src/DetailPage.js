@@ -31,7 +31,7 @@ export default class DetailPage extends Component {
                     pokemon
                 ? <div>
                  <Header />
-                    <div className="pokemon-list">
+                    <div className="pokemon-list pokemon-detail">
                         <li className="pokemon-name" key={pokemon.id}>{pokemon.pokemon}
                                         <p>type: {pokemon.type_1}</p>
                                         <p>attack: {pokemon.attack}</p>

@@ -14,3 +14,19 @@
 img {
     border: dotted white;
 }
+
+button {
+    background-color: pink; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border: 2px solid white;
+  }
+
+  .pokemon-detail {
+      justify-content: center;
+  }
