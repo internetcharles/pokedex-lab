@@ -1,4 +1,8 @@
 .searchbar {
     align-self: center;
     text-align: center;
+    float: left;
+    margin: 50px;
+    color: white;
+    font-family: 'Roboto Condensed', sans-serif;
 }
