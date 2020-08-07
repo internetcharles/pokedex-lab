@@ -12,3 +12,30 @@ html {
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap');
 
+a {
+  color: white;
+}
+
+a:visited {
+  color: hotpink;
+}
+
+.back-link {
+  font-size: 4rem;
+  color: white;
+  font-family: 'Roboto Condensed', sans-serif;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+  margin-top: 1rem;
+}
+
+h1 {
+  font-size: 40rem;
+  color: white;
+  font-family: 'Roboto Condensed', sans-serif;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+  margin-top: 1rem;
+}
