@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import request from 'superagent'
 import Header from './Header'
+import { Link } from 'react-router-dom'
 
 export default class DetailPage extends Component {
 
@@ -26,17 +27,25 @@ export default class DetailPage extends Component {
 
         return (
             <div>
-                <Header />
-                <div className="pokemon-list">
-                    <li className="pokemon-name" key={pokemon.id}>{pokemon.pokemon}
-                                    <p>type: {pokemon.type_1}</p>
-                                    <p>attack: {pokemon.attack}</p>
-                                    <p>defense: {pokemon.defense}</p>
-                                    <p>ability 1: {pokemon.ability_1}</p>
-                                    <p>ability 2: {pokemon.ability_2}</p>
-                                    <img src={pokemon.url_image} alt={pokemon.pokemon} />
-                                </li>
-                </div>
+                {
+                    pokemon
+                ? <div>
+                 <Header />
+                    <div className="pokemon-list">
+                        <li className="pokemon-name" key={pokemon.id}>{pokemon.pokemon}
+                                        <p>type: {pokemon.type_1}</p>
+                                        <p>attack: {pokemon.attack}</p>
+                                        <p>defense: {pokemon.defense}</p>
+                                        <p>ability 1: {pokemon.ability_1}</p>
+                                        <p>ability 2: {pokemon.ability_2}</p>
+                                        <img src={pokemon.url_image} alt={pokemon.pokemon} />
+                                    </li>
+                    </div>
+                    <Link className='back-link' to={`/`}>BACK</Link>
+                    </div>
+                        : <h1>loading</h1>
+
+                }
             </div>
         )
     }

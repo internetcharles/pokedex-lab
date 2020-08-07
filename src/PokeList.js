@@ -8,8 +8,8 @@ export default class PokeList extends Component {
             <div>
                 <ul className="pokemon-list">
                     {this.props.data.map(pokemon => {
-                    return  <Link to={`/${pokemon.pokemon}`}>
-                            <li className="pokemon-name" key={pokemon.id}>{pokemon.pokemon.toUpperCase()}
+                    return  <Link key={pokemon.id} to={`/${pokemon.pokemon}`}>
+                            <li className="pokemon-name">{pokemon.pokemon.toUpperCase()}
                                 {/* <p>Type: {pokemon.type_1}</p>
                                 <p>Attack: {pokemon.attack}</p>
                                 <p>Defense: {pokemon.defense}</p> */}

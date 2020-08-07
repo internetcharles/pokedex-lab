@@ -30,13 +30,13 @@ export default class SearchPage extends Component {
         this.setState({ searchType: event.target.value})
       }
     
-      handleType = async (event) => {
-        this.setState({ currentType: event.target.value })
-      }
+      // handleType = async (event) => {
+      //   this.setState({ currentType: event.target.value })
+      // }
     
-      handleAttackChange = (event) => {
-        this.setState({ attackValue: event.target.value })
-      }
+      // handleAttackChange = (event) => {
+      //   this.setState({ attackValue: event.target.value })
+      // }
     
       handleClick = async () => {
         let link = `https://alchemy-pokedex.herokuapp.com/api/pokedex/?${this.state.searchType}=`
@@ -45,13 +45,13 @@ export default class SearchPage extends Component {
           link = link + this.state.nameSearchQuery;
         }
     
-        if (this.state.currentType) {
-          link = link + '&type=' + this.state.currentType;
-        }
+        // if (this.state.currentType) {
+        //   link = link + '&type=' + this.state.currentType;
+        // }
     
-        if (this.state.attackValue) {
-          link = link + '&attack=' + this.state.attackValue;
-        }
+        // if (this.state.attackValue) {
+        //   link = link + '&attack=' + this.state.attackValue;
+        // }
 
         console.log(link);
     
