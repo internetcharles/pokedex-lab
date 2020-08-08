@@ -37,7 +37,6 @@ export default class SearchPage extends Component {
 
       makeRequest = async () => {
         const fetchedData = await request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex?page=${this.state.currentPage}&perPage=20&${this.state.searchType}=${this.state.search}`)
-        console.log(fetchedData);
         await this.setState({ data: fetchedData.body.results, 
                               maxPages: Math.ceil(fetchedData.body.count / 20)});
 
@@ -46,8 +45,6 @@ export default class SearchPage extends Component {
         params.set('search', this.state.search);
         params.set('searchType', this.state.searchType);
         params.set('page', this.state.currentPage);
-
-        console.log(this.state.search)
 
         this.props.history.push('?' + params.toString())
       }
